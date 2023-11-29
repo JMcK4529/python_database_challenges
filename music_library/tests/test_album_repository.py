@@ -25,3 +25,12 @@ def test_all_records_retrieved_by_all_method(db_connection):
         Album(11, 'Fodder on My Wings', 1982, 4),
         Album(12, 'Ring Ring', 1973, 2)
     ]
+
+"""
+AlbumRepository.find(n) returns the Album whose id == n
+"""
+def test_single_record_with_correct_id_retrieved_by_find(db_connection):
+    db_connection.seed("seeds/music_library.sql")
+    repository = AlbumRepository(db_connection)
+    album = repository.find(6)
+    assert album == Album(6, 'Lover', 2019, 3)
