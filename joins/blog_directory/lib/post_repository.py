@@ -8,7 +8,8 @@ class PostRepository:
     def find_with_comments(self, post_id):
         rows = self._connection.execute(
             """SELECT posts.id AS post_id, posts.title AS post_title,
-            posts.post_content, comments.id AS comment_id, comments.comment_content, 
+            posts.post_content, comments.id AS comment_id, 
+            comments.comment_content, 
             comments.author_name
             FROM posts JOIN comments 
             ON posts.id = comments.post_id
