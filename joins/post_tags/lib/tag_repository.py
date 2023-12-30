@@ -1,0 +1,2 @@
+class TagRepository:
+    pass
